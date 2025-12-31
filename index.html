@@ -18,6 +18,7 @@
             height: 100%;
             overflow: hidden;
             background: black;
+            cursor: none;
         }
         
         video {
@@ -1006,7 +1007,7 @@
 </head>
 <body>
     <video id="videoPlayer" loop muted playsinline>
-        <source src="waterfall.mp4" type="video/mp4">
+        <source src="https://res.cloudinary.com/dxclnybhc/video/upload/waterfall_lv8y3z.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     
@@ -1053,14 +1054,6 @@
                 <polyline points="22,6 12,13 2,6" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
-        
-        <div class="nav-icon audio-icon" title="Toggle Audio">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="11,5 6,9 2,9 2,15 6,15 11,19" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="rgba(255,255,255,0.9)"/>
-                <line x1="23" y1="9" x2="17" y2="15" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
-                <line x1="17" y1="9" x2="23" y2="15" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </div>
     </div>
 
     <!-- Navbar Toggle Arrow -->
@@ -1071,19 +1064,67 @@
             </svg>
         </div>
     </div>
-    
+
     <h1 class="welcome-message">Welcome to My Portfolio</h1>
     <h2 class="about-message">Explore My Creative Journey</h2>
-    
-    <div class="about-card" id="about-card">
-        <h2 class="about-title">About Me</h2>
+
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+        <div onclick="openResumeModal()" style="position: relative; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; padding: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); transition: all 0.3s ease; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span style="position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.8); color: white; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-family: 'Inter', sans-serif; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">Resume</span>
+        </div>
+    </div>
+
+    <div id="resumeModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
+        <div style="position: relative; background: white; border-radius: 12px; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);">
+            <button onclick="closeResumeModal()" style="position: absolute; top: 15px; right: 15px; background: rgba(0, 0, 0, 0.1); border: none; border-radius: 50%; width: 35px; height: 35px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; z-index: 10;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <iframe src="manish.pdf" style="width: 100%; height: 100%; min-height: 80vh; border: none; border-radius: 12px;" type="application/pdf"></iframe>
+        </div>
+    </div>
+
+    <style>
+        div[style*="fixed"][style*="top: 20px"] div:hover span { opacity: 1 !important; }
+        #resumeModal { display: none; }
+        #resumeModal.show { display: flex !important; }
+    </style>
+
+    <script>
+        function openResumeModal() {
+            document.getElementById('resumeModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeResumeModal() {
+            document.getElementById('resumeModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('resumeModal');
+            if (event.target === modal) closeResumeModal();
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') closeResumeModal();
+        });
+    </script>
+
+    <div class="about-card" id="about-card" style="position: relative;">
+       
         <div class="about-content">
-            <!-- Description content will be added later -->
-            
-            <!-- Empty space for future content -->
-            <div class="skills-list">
-                <!-- Content will be added later -->
-            </div>
+            <p style="font-size: 30px; font-weight: 700; margin-bottom: 10px; margin-top: 0; padding-left: 75px; color: #000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Arial, sans-serif;">Hey, I am Manish</p>
+            <p style="font-size: 18px; line-height: 1.8; color: rgba(0, 0, 0, 0.8); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Arial, sans-serif;">Java Developer focused on Spring Boot and backend development. I build reliable REST APIs, work with PostgreSQL and MySQL, and care about clean, maintainable code. Curious about how systems fail and scale, I’m exploring microservices and backend design through hands-on projects and open-source contributions. Open to work, collaboration, and new opportunities.</p>
         </div>
     </div>
     
@@ -1094,8 +1135,10 @@
     <div class="nav-arrow left-2">‹</div>
     <div class="nav-arrow right-1">
         ›
-        <span class="arrow-text" onclick="triggerBirdTransition('right', 'learning-journey.html')">Explore My Learning Journey</span>
+        <span class="arrow-text" onclick="triggerBirdTransition('right', 'learning-journey.html')"> My Learning Journey</span>
     </div>
+
+    
     <div class="nav-arrow right-2">›</div>
     
     <!-- Bird Cursor Element -->
@@ -1203,7 +1246,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Transition Birds Container -->
     <div id="transitionBirds" class="transition-birds">
         <!-- Bird 1 -->
@@ -1512,8 +1555,6 @@
         // Force play when page loads
         window.addEventListener('load', () => {
             video.play().catch(e => {
-                console.log('Autoplay prevented:', e);
-                // Click anywhere to start video if autoplay is blocked
                 document.addEventListener('click', () => {
                     video.play();
                 }, { once: true });
@@ -1540,20 +1581,7 @@
         
         // Initialize background audio
         function initAudio() {
-            backgroundAudio = new Audio('jungle.mp3');
-            backgroundAudio.loop = true;
-            backgroundAudio.volume = 0.3; // Set to 30% volume
-            
-            // Preload the audio
-            backgroundAudio.preload = 'auto';
-            
-            backgroundAudio.addEventListener('canplaythrough', () => {
-                console.log('Background audio loaded and ready');
-            });
-            
-            backgroundAudio.addEventListener('error', (e) => {
-                console.error('Error loading background audio:', e);
-            });
+            // Audio feature disabled
         }
         
         function toggleAudio() {
@@ -1580,9 +1608,7 @@
             } else {
                 // Play audio
                 if (backgroundAudio) {
-                    backgroundAudio.play().catch(e => {
-                        console.log('Autoplay prevented, user interaction required:', e);
-                    });
+                    backgroundAudio.play().catch(e => {});
                 }
                 // Unmuted icon (speaker with sound waves)
                 audioIcon.innerHTML = `
@@ -1590,8 +1616,6 @@
                     <path d="M19.07 4.93C20.97 6.83 21.97 9.35 21.97 12C21.97 14.65 20.97 17.17 19.07 19.07M15.54 8.46C16.49 9.41 16.97 10.7 16.97 12C16.97 13.3 16.49 14.59 15.54 15.54" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 `;
             }
-            
-            console.log(`Background audio ${isAudioMuted ? 'muted' : 'playing'}`);
         }
 
         // Navigation functionality for navbar icons
@@ -1608,7 +1632,7 @@
                 } else if (this.classList.contains('twitter-icon')) {
                     window.open('https://x.com/mrathaur704', '_blank');
                 } else if (this.classList.contains('github-icon')) {
-                    window.open('https://github.com/ItsVicky25', '_blank');
+                    window.open('https://github.com/Rawdyrathaur', '_blank');
                 } else if (this.classList.contains('kaggle-icon')) {
                     window.open('https://www.kaggle.com/manishrathaur', '_blank');
                 } else if (this.classList.contains('medium-icon')) {
@@ -1623,24 +1647,6 @@
             });
         });
         
-        // Initialize audio when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            initAudio();
-            
-            // Set initial audio icon based on saved state
-            if (!isAudioMuted) {
-                const audioIcon = document.querySelector('.audio-icon svg');
-                if (audioIcon) {
-                    audioIcon.innerHTML = `
-                        <polygon points="11,5 6,9 2,9 2,15 6,15 11,19" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="rgba(255,255,255,0.9)"/>
-                        <path d="M19.07 4.93C20.97 6.83 21.97 9.35 21.97 12C21.97 14.65 20.97 17.17 19.07 19.07M15.54 8.46C16.49 9.41 16.97 10.7 16.97 12C16.97 13.3 16.49 14.59 15.54 15.54" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    `;
-                    if (backgroundAudio) {
-                        backgroundAudio.play().catch(e => console.log('Autoplay prevented:', e));
-                    }
-                }
-            }
-        });
         
         // Navbar slide-in/out functionality
         const navbar = document.querySelector('.glass-card');
@@ -1710,94 +1716,85 @@
         
         
     </script>
+
     <script>
         // Dual Bird Cursor System with Wing Flapping
         let birdElement1 = null;
         let birdElement2 = null;
         let mouseX = 0;
         let mouseY = 0;
-        
+
         // Track mouse movement
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
         });
-        
+
         // First bird (follows mouse)
         let bird1X = 0;
         let bird1Y = 0;
         let prevBird1X = 0;
         let prevBird1Y = 0;
         let isFlapping1 = false;
-        
+
         // Second bird (follows first bird)
         let bird2X = 0;
         let bird2Y = 0;
         let prevBird2X = 0;
         let prevBird2Y = 0;
         let isFlapping2 = false;
-        
+
         function initBirdCursor() {
-            console.log('Initializing dual bird cursor...');
-            
             birdElement1 = document.getElementById('birdCursor');
             birdElement2 = document.getElementById('birdCursor2');
-            
+
             if (!birdElement1 || !birdElement2) {
-                console.error('Bird cursor elements not found');
                 return;
             }
-            
+
             // Set initial positions
             bird1X = window.innerWidth / 2;
             bird1Y = window.innerHeight / 2;
-            bird2X = bird1X - 80; // Start behind first bird
+            bird2X = bird1X - 80;
             bird2Y = bird1Y + 20;
-            
+
             prevBird1X = bird1X;
             prevBird1Y = bird1Y;
             prevBird2X = bird2X;
             prevBird2Y = bird2Y;
-            
-            // Track mouse movement
-            document.addEventListener('mousemove', function(e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-            
+
             // Start animation loop
             animateBirds();
-            console.log('Dual bird cursor initialized successfully');
         }
-        
+
         function animateBirds() {
             if (!birdElement1 || !birdElement2) return;
-            
+
             // Store previous positions
             prevBird1X = bird1X;
             prevBird1Y = bird1Y;
             prevBird2X = bird2X;
             prevBird2Y = bird2Y;
-            
+
             // === FIRST BIRD (follows mouse) ===
             const speed1 = 0.15;
             bird1X += (mouseX - bird1X) * speed1;
             bird1Y += (mouseY - bird1Y) * speed1;
-            
+
             // Calculate movement speed for flapping
             const deltaX1 = bird1X - prevBird1X;
             const deltaY1 = bird1Y - prevBird1Y;
             const movementSpeed1 = Math.sqrt(deltaX1 * deltaX1 + deltaY1 * deltaY1);
             const shouldFlap1 = movementSpeed1 > 0.5;
-            
+
             // Calculate direction for flipping
             const mouseDirection1 = mouseX - bird1X;
             const scaleX1 = mouseDirection1 >= 0 ? 1 : -1;
-            
+
             // Apply position and flip for first bird
             birdElement1.style.left = (bird1X - 45) + 'px';
             birdElement1.style.top = (bird1Y - 40) + 'px';
-            
+
             const container1 = birdElement1.querySelector('.bird-container');
             if (container1) {
                 if (shouldFlap1 && !isFlapping1) {
@@ -1809,31 +1806,27 @@
                 }
                 container1.style.transform = `scaleX(${scaleX1})`;
             }
-            
+
             // === SECOND BIRD (follows first bird) ===
-            const speed2 = 0.08; // Slower to create trailing effect
-            const followDistance = 100; // Distance to maintain behind first bird
-            
-            // Calculate target position behind first bird
+            const speed2 = 0.08;
+            const followDistance = 100;
+
             const targetX2 = bird1X - (scaleX1 * followDistance);
-            const targetY2 = bird1Y + 30; // Slightly below
-            
+            const targetY2 = bird1Y + 30;
+
             bird2X += (targetX2 - bird2X) * speed2;
             bird2Y += (targetY2 - bird2Y) * speed2;
-            
-            // Calculate movement speed for flapping
+
             const deltaX2 = bird2X - prevBird2X;
             const deltaY2 = bird2Y - prevBird2Y;
             const movementSpeed2 = Math.sqrt(deltaX2 * deltaX2 + deltaY2 * deltaY2);
-            const shouldFlap2 = movementSpeed2 > 0.3; // More sensitive for smaller bird
-            
-            // Calculate direction for flipping (follow first bird's direction)
-            const scaleX2 = scaleX1; // Same direction as first bird
-            
-            // Apply position and flip for second bird
-            birdElement2.style.left = (bird2X - 36) + 'px'; // Adjusted for bigger size (40%)
+            const shouldFlap2 = movementSpeed2 > 0.3;
+
+            const scaleX2 = scaleX1;
+
+            birdElement2.style.left = (bird2X - 36) + 'px';
             birdElement2.style.top = (bird2Y - 32) + 'px';
-            
+
             const container2 = birdElement2.querySelector('.bird-container');
             if (container2) {
                 if (shouldFlap2 && !isFlapping2) {
@@ -1845,36 +1838,58 @@
                 }
                 container2.style.transform = `scaleX(${scaleX2})`;
             }
-            
-            // Continue animation
+
             requestAnimationFrame(animateBirds);
         }
-        
-        // Initialize when DOM is ready
+
+        // Initialize everything when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize audio
+            if (typeof initAudio === 'function') {
+                initAudio();
+
+                // Set initial audio icon based on saved state
+                if (!isAudioMuted) {
+                    const audioIcon = document.querySelector('.audio-icon svg');
+                    if (audioIcon) {
+                        audioIcon.innerHTML = `
+                            <polygon points="11,5 6,9 2,9 2,15 6,15 11,19" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="rgba(255,255,255,0.9)"/>
+                            <path d="M19.07 4.93C20.97 6.83 21.97 9.35 21.97 12C21.97 14.65 20.97 17.17 19.07 19.07M15.54 8.46C16.49 9.41 16.97 10.7 16.97 12C16.97 13.3 16.49 14.59 15.54 15.54" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        `;
+                        if (backgroundAudio) {
+                            backgroundAudio.play().catch(e => {});
+                        }
+                    }
+                }
+            }
+
+            // Initialize bird cursor
             initBirdCursor();
+
+            // Reset transition birds
             resetTransitionBirds();
-            
-            // Skip intro if not first visit
+
+            // Handle returning navigation
             if (document.referrer && document.referrer.includes(window.location.hostname)) {
-                document.querySelector('.welcome-message').style.display = 'none';
-                document.querySelector('.about-message').style.display = 'none';
-                
+                const welcomeMsg = document.querySelector('.welcome-message');
+                const aboutMsg = document.querySelector('.about-message');
+
+                if (welcomeMsg) welcomeMsg.style.display = 'none';
+                if (aboutMsg) aboutMsg.style.display = 'none';
+
                 const aboutCard = document.querySelector('.about-card');
-                aboutCard.style.opacity = '1';
-                aboutCard.style.transform = 'translate(-50%, -50%) scale(1)';
-                aboutCard.style.animation = 'none';
-                
-                // Navbar stays hidden for manual control
-                
-                // Show arrows
+                if (aboutCard) {
+                    aboutCard.style.opacity = '1';
+                    aboutCard.style.transform = 'translate(-50%, -50%) scale(1)';
+                    aboutCard.style.animation = 'none';
+                }
+
                 const arrows = document.querySelectorAll('.nav-arrow');
                 arrows.forEach(arrow => {
                     arrow.style.opacity = '1';
                     arrow.style.animationPlayState = 'running';
                 });
-                
-                // Show arrow text
+
                 const arrowTexts = document.querySelectorAll('.arrow-text');
                 arrowTexts.forEach(text => {
                     text.style.opacity = '1';

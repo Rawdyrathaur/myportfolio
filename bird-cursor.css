@@ -1,11 +1,10 @@
-/* === Demo Styles === */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
-  cursor: none; /* Hide default cursor */
+  cursor: none;
 }
 
 .demo-container {
@@ -78,7 +77,6 @@ body {
   font-size: 14px;
 }
 
-/* === Bird Cursor Styles === */
 .bird-cursor {
   position: fixed;
   pointer-events: none;
@@ -105,7 +103,6 @@ body {
   animation: float 4s ease-in-out infinite;
 }
 
-/* === Bird Body === */
 .bird-body {
   position: absolute;
   width: 100px;
@@ -114,7 +111,7 @@ body {
   border-radius: 50% 50% 40% 40%;
   top: 35px;
   left: 40px;
-  box-shadow: 
+  box-shadow:
     inset -8px -8px 15px rgba(101, 67, 33, 0.4),
     inset 5px 0 10px rgba(205, 133, 63, 0.3),
     3px 3px 12px rgba(0,0,0,0.25);
@@ -122,7 +119,6 @@ body {
   overflow: hidden;
 }
 
-/* === Feather Details === */
 .feather-detail {
   position: absolute;
   width: 15px;
@@ -137,7 +133,6 @@ body {
 .feather-detail-3 { top: 25px; left: 55px; transform: rotate(15deg); }
 .feather-detail-4 { top: 30px; left: 70px; transform: rotate(-5deg); }
 
-/* === Bird Breast === */
 .bird-breast {
   position: absolute;
   width: 65px;
@@ -147,12 +142,11 @@ body {
   top: 45px;
   left: 45px;
   z-index: 3;
-  box-shadow: 
+  box-shadow:
     inset 0 -5px 8px rgba(139, 0, 0, 0.4),
     1px 1px 5px rgba(0,0,0,0.15);
 }
 
-/* === Bird Head === */
 .bird-head {
   position: absolute;
   width: 55px;
@@ -162,13 +156,12 @@ body {
   top: 15px;
   left: 70px;
   z-index: 3;
-  box-shadow: 
+  box-shadow:
     inset 0 -8px 12px rgba(69, 34, 0, 0.5),
     3px 3px 8px rgba(0,0,0,0.2);
   overflow: hidden;
 }
 
-/* === Head Feathers === */
 .head-feather {
   position: absolute;
   width: 8px;
@@ -181,7 +174,6 @@ body {
 .head-feather-2 { top: 5px; left: 30px; transform: rotate(-20deg); }
 .head-feather-3 { top: 15px; left: 40px; transform: rotate(10deg); }
 
-/* === Bird Eyes === */
 .bird-eye {
   position: absolute;
   width: 18px;
@@ -190,7 +182,7 @@ body {
   border-radius: 50%;
   top: 25px;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     inset 0 0 8px rgba(255,255,255,0.3),
     0 0 5px rgba(0,0,0,0.5);
   z-index: 4;
@@ -221,7 +213,6 @@ body {
   left: 10px;
 }
 
-/* === Bird Beak === */
 .bird-beak {
   position: absolute;
   width: 25px;
@@ -254,7 +245,6 @@ body {
   border-radius: 2px;
 }
 
-/* === Bird Wings === */
 .bird-wing {
   position: absolute;
   width: 70px;
@@ -263,7 +253,7 @@ body {
   border-radius: 40% 50% 50% 40%;
   z-index: 1;
   transform-origin: top center;
-  box-shadow: 
+  box-shadow:
     5px 5px 15px rgba(0,0,0,0.4),
     inset -5px -5px 8px rgba(0,0,0,0.3);
 }
@@ -311,7 +301,6 @@ body {
   z-index: 4;
 }
 
-/* === Bird Tail === */
 .bird-tail {
   position: absolute;
   width: 50px;
@@ -356,7 +345,6 @@ body {
   transform: rotate(5deg);
 }
 
-/* === Animations === */
 @keyframes flap-left {
   0% { transform: rotate(-30deg); }
   50% { transform: rotate(15deg); }
@@ -381,7 +369,6 @@ body {
   100% { opacity: 0.9; transform: scale(1); }
 }
 
-/* === Flapping Animation === */
 .flapping .bird-wing.left {
   animation: flap-left 0.8s infinite;
 }
@@ -390,7 +377,6 @@ body {
   animation: flap-right 0.8s infinite;
 }
 
-/* === Theme Variants === */
 .bird-container.robin {
   --bird-body-gradient: linear-gradient(160deg, #8B4513 0%, #A0522D 30%, #CD853F 70%, #DEB887 100%);
   --bird-breast-gradient: linear-gradient(160deg, #FF8C00 0%, #FF4500 30%, #FF6347 100%);
@@ -409,7 +395,6 @@ body {
   --bird-head-gradient: linear-gradient(160deg, #8B0000 0%, #DC143C 100%);
 }
 
-/* === Performance Optimizations === */
 .bird-cursor,
 .bird-container,
 .bird {
@@ -419,40 +404,38 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
-/* === Accessibility === */
 @media (prefers-reduced-motion: reduce) {
   .bird {
     animation: none;
   }
-  
+
   .flapping .bird-wing.left,
   .flapping .bird-wing.right {
     animation: none;
   }
-  
+
   .eye-reflection {
     animation: none;
   }
 }
 
-/* === Responsive Design === */
 @media (max-width: 768px) {
   .bird-container {
     width: 140px;
     height: 120px;
     transform: scale(0.8);
   }
-  
+
   .demo-container h1 {
     font-size: 2em;
   }
-  
+
   .controls button, .theme-controls button {
     padding: 8px 16px;
     margin: 5px;
     font-size: 12px;
   }
-  
+
   .settings {
     flex-direction: column;
     align-items: center;

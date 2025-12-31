@@ -178,152 +178,6 @@
         .book-modal .project-card:nth-child(6) { animation-delay: 1.2s; }
 
         /* ======================== */
-        /* NAVIGATION COMPONENTS */
-        /* ======================== */
-        
-        /* Glass Card Navbar */
-        .glass-card {
-            width: 60px;
-            height: calc(85vh - 40px);
-            background: rgba(255, 255, 255, 0.11);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5),
-                inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-                inset 0 0 15px 3px rgba(255, 255, 255, 0.1);
-            position: fixed;
-            top: 20px;
-            left: -50px;
-            overflow: hidden;
-            z-index: 2;
-            transition: left 0.3s ease-in-out;
-        }
-
-        .glass-card.show {
-            left: 20px;
-        }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.8),
-                transparent
-            );
-        }
-
-        .glass-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 1px;
-            height: 100%;
-            background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.8),
-                transparent,
-                rgba(255, 255, 255, 0.3)
-            );
-        }
-
-        /* Navigation Icons */
-        .nav-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 
-                0 4px 16px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        }
-
-        .nav-icon:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-            box-shadow: 
-                0 6px 20px rgba(0, 0, 0, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-        }
-
-        .nav-icon:active {
-            transform: scale(0.9);
-            transition: transform 0.1s ease;
-        }
-
-        .home-icon {
-            margin: 20px auto 15px;
-        }
-
-        .twitter-icon, .github-icon, .kaggle-icon, .medium-icon, .linkedin-icon, .contact-icon, .audio-icon {
-            margin: 15px auto;
-        }
-
-        /* Navbar Toggle */
-        .navbar-toggle {
-            position: fixed;
-            top: 40%;
-            left: 75px;
-            transform: translateY(-50%);
-            z-index: 1000;
-            transition: left 0.3s ease-in-out;
-            opacity: 0.9;
-        }
-
-        .navbar-toggle.navbar-open {
-            left: 95px;
-        }
-
-        .toggle-arrow {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(15px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .toggle-arrow:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-            opacity: 1;
-        }
-
-        .toggle-arrow svg {
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-toggle.navbar-open .toggle-arrow svg {
-            transform: rotate(180deg);
-        }
-
-        /* ======================== */
         /* BIRD CURSOR SYSTEM */
         /* ======================== */
         .bird-cursor {
@@ -1612,7 +1466,7 @@
 </head>
 <body>
     <video id="videoPlayer" autoplay muted loop>
-        <source src="plant-motion.mp4" type="video/mp4">
+        <source src="https://res.cloudinary.com/dxclnybhc/video/upload/plant-motion_ukxtvj.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
@@ -1657,14 +1511,6 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <polyline points="22,6 12,13 2,6" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-        
-        <div class="nav-icon audio-icon" title="Toggle Audio">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="11,5 6,9 2,9 2,15 6,15 11,19" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="rgba(255,255,255,0.9)"/>
-                <line x1="23" y1="9" x2="17" y2="15" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
-                <line x1="17" y1="9" x2="23" y2="15" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
             </svg>
         </div>
     </div>
@@ -1804,10 +1650,8 @@
         
         // Force play when page loads
         window.addEventListener('load', () => {
-            video.muted = true; // Ensure video stays muted
-            video.play().catch(e => {
-                console.log('Autoplay prevented:', e);
-            });
+            video.muted = true;
+            video.play().catch(e => {});
         });
         
         // Ensure video keeps playing
@@ -1852,20 +1696,7 @@
         
         // Initialize background audio
         function initAudio() {
-            backgroundAudio = new Audio('jungle.mp3');
-            backgroundAudio.loop = true;
-            backgroundAudio.volume = 0.3; // Set to 30% volume
-            
-            // Preload the audio
-            backgroundAudio.preload = 'auto';
-            
-            backgroundAudio.addEventListener('canplaythrough', () => {
-                console.log('Background audio loaded and ready');
-            });
-            
-            backgroundAudio.addEventListener('error', (e) => {
-                console.error('Error loading background audio:', e);
-            });
+
         }
         
         function toggleAudio() {
@@ -1892,9 +1723,7 @@
             } else {
                 // Play audio
                 if (backgroundAudio) {
-                    backgroundAudio.play().catch(e => {
-                        console.log('Autoplay prevented, user interaction required:', e);
-                    });
+                    backgroundAudio.play().catch(e => {});
                 }
                 // Unmuted icon (speaker with sound waves)
                 audioIcon.innerHTML = `
@@ -1902,8 +1731,6 @@
                     <path d="M19.07 4.93C20.97 6.83 21.97 9.35 21.97 12C21.97 14.65 20.97 17.17 19.07 19.07M15.54 8.46C16.49 9.41 16.97 10.7 16.97 12C16.97 13.3 16.49 14.59 15.54 15.54" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 `;
             }
-            
-            console.log(`Background audio ${isAudioMuted ? 'muted' : 'playing'}`);
         }
 
         // Navigation functionality for navbar icons
@@ -1920,7 +1747,7 @@
                 } else if (this.classList.contains('twitter-icon')) {
                     window.open('https://x.com/mrathaur704', '_blank');
                 } else if (this.classList.contains('github-icon')) {
-                    window.open('https://github.com/ItsVicky25', '_blank');
+                    window.open('https://github.com/Rawdyrathaur', '_blank');
                 } else if (this.classList.contains('kaggle-icon')) {
                     window.open('https://www.kaggle.com/manishrathaur', '_blank');
                 } else if (this.classList.contains('medium-icon')) {
@@ -1948,7 +1775,7 @@
                         <path d="M19.07 4.93C20.97 6.83 21.97 9.35 21.97 12C21.97 14.65 20.97 17.17 19.07 19.07M15.54 8.46C16.49 9.41 16.97 10.7 16.97 12C16.97 13.3 16.49 14.59 15.54 15.54" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     `;
                     if (backgroundAudio) {
-                        backgroundAudio.play().catch(e => console.log('Autoplay prevented:', e));
+                        backgroundAudio.play().catch(e => {});
                     }
                 }
             }
@@ -2002,13 +1829,10 @@
         let isFlapping2 = false;
         
         function initBirdCursor() {
-            console.log('Initializing dual bird cursor...');
-            
             birdElement1 = document.getElementById('birdCursor');
             birdElement2 = document.getElementById('birdCursor2');
-            
+
             if (!birdElement1 || !birdElement2) {
-                console.error('Bird cursor elements not found');
                 return;
             }
             
@@ -2031,7 +1855,6 @@
             
             // Start animation loop
             animateBirds();
-            console.log('Dual bird cursor initialized successfully');
         }
         
         function animateBirds() {

@@ -7,20 +7,7 @@ let isAudioMuted = true;
 
 // Initialize background audio
 function initAudio() {
-    backgroundAudio = new Audio('jungle.mp3');
-    backgroundAudio.loop = true;
-    backgroundAudio.volume = 0.3; // Set to 30% volume
-    
-    // Preload the audio
-    backgroundAudio.preload = 'auto';
-    
-    backgroundAudio.addEventListener('canplaythrough', () => {
-        console.log('Background audio loaded and ready');
-    });
-    
-    backgroundAudio.addEventListener('error', (e) => {
-        console.error('Error loading background audio:', e);
-    });
+    // Audio feature disabled
 }
 
 function toggleAudio() {

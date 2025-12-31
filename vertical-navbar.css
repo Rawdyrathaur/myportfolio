@@ -1,22 +1,24 @@
 .glass-card {
     width: 60px;
-    height: calc(85vh - 40px);
+    height: auto;
+    padding-bottom: 15px;
     background: rgba(255, 255, 255, 0.11);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 
+    box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.1),
         inset 0 0 15px 3px rgba(255, 255, 255, 0.1);
     position: absolute;
-    top: 20px;
+    top: 40%;
+    transform: translateY(-50%);
     left: -50px;
     overflow: hidden;
     z-index: 2;
-    transition: left 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .glass-card.show {
@@ -67,7 +69,7 @@
     font-size: 18px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 
+    box-shadow:
         0 4px 16px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
@@ -75,17 +77,17 @@
 .nav-icon:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
-    box-shadow: 
+    box-shadow:
         0 6px 20px rgba(0, 0, 0, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .home-icon {
-    margin: 20px auto 15px;
+    margin: 15px auto 12px;
 }
 
 .twitter-icon, .github-icon, .kaggle-icon, .medium-icon, .linkedin-icon, .contact-icon, .audio-icon {
-    margin: 15px auto;
+    margin: 12px auto;
 }
 
 .nav-icon:active {
@@ -140,7 +142,7 @@
     }
     20% {
         transform: scale(1.3);
-        box-shadow: 
+        box-shadow:
             0 8px 25px rgba(255, 255, 255, 0.3),
             0 0 20px rgba(255, 255, 255, 0.4),
             inset 0 1px 0 rgba(255, 255, 255, 0.9);
@@ -156,20 +158,19 @@
     }
     100% {
         transform: scale(1);
-        box-shadow: 
+        box-shadow:
             0 4px 16px rgba(0, 0, 0, 0.1),
             inset 0 1px 0 rgba(255, 255, 255, 0.6);
     }
 }
 
-/* Navbar Toggle Arrow Styles */
 .navbar-toggle {
     position: fixed;
     top: 40%;
     left: 75px;
     transform: translateY(-50%);
     z-index: 1000;
-    transition: left 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
     opacity: 0.9;
 }
 
@@ -205,4 +206,11 @@
 
 .navbar-toggle.navbar-open .toggle-arrow svg {
     transform: rotate(180deg);
+}
+
+.glass-card.show ~ .nav-arrow.left-1,
+.glass-card.show ~ .nav-arrow.left-2 {
+    opacity: 0 !important;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
 }

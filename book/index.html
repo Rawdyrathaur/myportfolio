@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Book</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Dancing+Script:wght@400;600;700&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <style>
         * {
@@ -54,263 +54,6 @@
 
         .cover-page {
             position: relative;
-            transition: box-shadow 0.5s ease-in-out;
-        }
-
-        .cover-page.glowing {
-            /* animation: bookGlow 3s ease-in-out infinite alternate; */
-        }
-
-        @keyframes bookGlow {
-            0% {
-                box-shadow: 
-                    0 0 30px rgba(255, 215, 0, 0.7),
-                    0 0 60px rgba(255, 215, 0, 0.5),
-                    0 0 90px rgba(255, 215, 0, 0.3),
-                    0 0 120px rgba(255, 215, 0, 0.2);
-                filter: brightness(1) contrast(1);
-            }
-            25% {
-                box-shadow: 
-                    0 0 50px rgba(255, 215, 0, 0.9),
-                    0 0 100px rgba(255, 215, 0, 0.7),
-                    0 0 150px rgba(255, 215, 0, 0.5),
-                    0 0 200px rgba(255, 215, 0, 0.3);
-                filter: brightness(1.1) contrast(1.1);
-            }
-            50% {
-                box-shadow: 
-                    0 0 40px rgba(255, 240, 100, 0.95),
-                    0 0 80px rgba(255, 215, 0, 0.8),
-                    0 0 120px rgba(255, 215, 0, 0.6),
-                    0 0 160px rgba(255, 215, 0, 0.4);
-                filter: brightness(1.05) contrast(1.05);
-            }
-            75% {
-                box-shadow: 
-                    0 0 60px rgba(255, 215, 0, 1),
-                    0 0 120px rgba(255, 215, 0, 0.8),
-                    0 0 180px rgba(255, 215, 0, 0.6),
-                    0 0 240px rgba(255, 215, 0, 0.4);
-                filter: brightness(1.15) contrast(1.15);
-            }
-            100% {
-                box-shadow: 
-                    0 0 45px rgba(255, 235, 120, 0.85),
-                    0 0 90px rgba(255, 215, 0, 0.65),
-                    0 0 135px rgba(255, 215, 0, 0.45),
-                    0 0 180px rgba(255, 215, 0, 0.25);
-                filter: brightness(1.08) contrast(1.08);
-            }
-        }
-
-        .cover-page::before,
-        .cover-page::after {
-            display: none;
-        }
-
-        .cover-page.glowing::before {
-            /* opacity: 1;
-            animation: cornerGlowTopLeft 2.5s ease-in-out infinite; */
-        }
-
-        .cover-page.glowing::after {
-            /* opacity: 1;
-            animation: cornerGlowTopRight 2.8s ease-in-out infinite; */
-        }
-
-        .cover-page::before {
-            top: 5px;
-            left: 5px;
-            clip-path: polygon(0 0, 100% 0, 0 100%);
-        }
-
-        .cover-page::after {
-            top: 5px;
-            right: 5px;
-            clip-path: polygon(0 0, 100% 0, 100% 100%);
-        }
-
-        .cover-page .corner-glow-bottom {
-            display: none;
-        }
-
-        .cover-page.glowing .corner-glow-bottom-left {
-            /* opacity: 1;
-            animation: cornerGlowBottomLeft 3.2s ease-in-out infinite; */
-        }
-
-        .cover-page.glowing .corner-glow-bottom-right {
-            /* opacity: 1;
-            animation: cornerGlowBottomRight 2.7s ease-in-out infinite; */
-        }
-
-        .corner-glow-bottom-left {
-            bottom: 5px;
-            left: 5px;
-            clip-path: polygon(0 0, 0 100%, 100% 100%);
-        }
-
-        .corner-glow-bottom-right {
-            bottom: 5px;
-            right: 5px;
-            clip-path: polygon(0 100%, 100% 0, 100% 100%);
-        }
-
-        @keyframes cornerGlowTopLeft {
-            0% { 
-                opacity: 0.6;
-                transform: scale(0.8);
-                filter: blur(6px);
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-            }
-            15% { 
-                opacity: 0.9;
-                transform: scale(1.1);
-                filter: blur(10px);
-                box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-            }
-            30% { 
-                opacity: 0.7;
-                transform: scale(0.9);
-                filter: blur(8px);
-                box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
-            }
-            50% { 
-                opacity: 1;
-                transform: scale(1.3);
-                filter: blur(12px);
-                box-shadow: 0 0 40px rgba(255, 240, 100, 0.9);
-            }
-            70% { 
-                opacity: 0.8;
-                transform: scale(1.0);
-                filter: blur(9px);
-                box-shadow: 0 0 35px rgba(255, 215, 0, 0.8);
-            }
-            100% { 
-                opacity: 0.6;
-                transform: scale(0.8);
-                filter: blur(6px);
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-            }
-        }
-
-        @keyframes cornerGlowTopRight {
-            0% { 
-                opacity: 0.7;
-                transform: scale(0.9);
-                filter: blur(7px);
-                box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
-            }
-            20% { 
-                opacity: 0.5;
-                transform: scale(0.7);
-                filter: blur(5px);
-                box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-            }
-            45% { 
-                opacity: 0.95;
-                transform: scale(1.2);
-                filter: blur(11px);
-                box-shadow: 0 0 35px rgba(255, 235, 120, 0.85);
-            }
-            65% { 
-                opacity: 0.8;
-                transform: scale(1.0);
-                filter: blur(9px);
-                box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-            }
-            85% { 
-                opacity: 0.6;
-                transform: scale(0.8);
-                filter: blur(6px);
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-            }
-            100% { 
-                opacity: 0.7;
-                transform: scale(0.9);
-                filter: blur(7px);
-                box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
-            }
-        }
-
-        @keyframes cornerGlowBottomLeft {
-            0% { 
-                opacity: 0.8;
-                transform: scale(1.0);
-                filter: blur(8px);
-                box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-            }
-            25% { 
-                opacity: 0.6;
-                transform: scale(0.8);
-                filter: blur(6px);
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-            }
-            40% { 
-                opacity: 1;
-                transform: scale(1.4);
-                filter: blur(14px);
-                box-shadow: 0 0 45px rgba(255, 240, 100, 1);
-            }
-            60% { 
-                opacity: 0.7;
-                transform: scale(0.9);
-                filter: blur(7px);
-                box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
-            }
-            80% { 
-                opacity: 0.9;
-                transform: scale(1.1);
-                filter: blur(10px);
-                box-shadow: 0 0 35px rgba(255, 215, 0, 0.9);
-            }
-            100% { 
-                opacity: 0.8;
-                transform: scale(1.0);
-                filter: blur(8px);
-                box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-            }
-        }
-
-        @keyframes cornerGlowBottomRight {
-            0% { 
-                opacity: 0.5;
-                transform: scale(0.7);
-                filter: blur(5px);
-                box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-            }
-            30% { 
-                opacity: 0.9;
-                transform: scale(1.2);
-                filter: blur(11px);
-                box-shadow: 0 0 35px rgba(255, 235, 120, 0.9);
-            }
-            50% { 
-                opacity: 0.7;
-                transform: scale(0.9);
-                filter: blur(7px);
-                box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
-            }
-            75% { 
-                opacity: 1;
-                transform: scale(1.3);
-                filter: blur(13px);
-                box-shadow: 0 0 40px rgba(255, 240, 100, 1);
-            }
-            90% { 
-                opacity: 0.8;
-                transform: scale(1.0);
-                filter: blur(8px);
-                box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-            }
-            100% { 
-                opacity: 0.5;
-                transform: scale(0.7);
-                filter: blur(5px);
-                box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-            }
         }
 
         .book-page {
@@ -694,6 +437,30 @@
             color: #61DAFB;
         }
 
+        .tech-icon[title="Spring Boot"] {
+            color: #6DB33F;
+        }
+
+        .tech-icon[title="Java"] {
+            color: #007396;
+        }
+
+        .tech-icon[title="Node.js"] {
+            color: #339933;
+        }
+
+        .tech-icon[title="Tailwind CSS"] {
+            color: #06B6D4;
+        }
+
+        .tech-icon[title="Chrome Extension"] {
+            color: #4285F4;
+        }
+
+        .tech-icon[title="Gemini AI"] {
+            color: #886FBF;
+        }
+
         .project-text {
             font-family: 'Kalam', cursive;
             font-size: 0.6rem;
@@ -820,24 +587,168 @@
             text-align: left;
         }
 
+        .project-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            height: 220px;
+            margin-bottom: 15px;
+        }
+
+        .video-project-link {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .play-button-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .play-icon {
+            width: 80px;
+            height: 80px;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .video-project-link:hover .play-icon {
+            transform: scale(1.15);
+            filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.7));
+        }
+
+        .video-project-link:active .play-icon {
+            transform: scale(1.05);
+        }
+
+        .cover-page.glowing {
+            animation: coverGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes coverGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6))
+                        drop-shadow(0 0 40px rgba(212, 175, 55, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.8))
+                        drop-shadow(0 0 60px rgba(212, 175, 55, 0.6))
+                        drop-shadow(0 0 80px rgba(212, 175, 55, 0.4));
+            }
+        }
+
     </style>
 </head>
 <body>
     <div id="flipbook">
                 <div class="book-page page1 cover-page" data-density="hard">
                     <img src="js/cover.png" alt="Book Cover" style="width: 100%; height: 100%; object-fit: cover;">
-                    <div class="corner-glow-bottom corner-glow-bottom-left"></div>
-                    <div class="corner-glow-bottom corner-glow-bottom-right"></div>
                 </div>
                 <div class="book-page page2 empty-page">
                 </div>
                 <div class="book-page page3 empty-page">
                     <div class="page-content project-page">
                         <div class="project-container">
-                            <img src="js/3rd.png" 
-                                 alt="Project Image" 
+                            <div class="project-image-wrapper">
+                                <a href="https://www.youtube.com/watch?v=c8UEOE1E4zc" target="_blank" class="video-project-link">
+                                    <img src="js/carbon-pulse.jpg"
+                                         alt="Carbon Pulse - Digital Carbon Tracker"
+                                         class="project-image">
+                                    <div class="play-button-overlay">
+                                        <svg class="play-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="50" cy="50" r="45" fill="rgba(0, 0, 0, 0.5)"/>
+                                            <polygon points="40,30 40,70 70,50" fill="rgba(255, 255, 255, 0.9)"/>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="project-header">
+                                <a href="https://your-carbon-pulse-frontend.vercel.app/" target="_blank" class="project-title">Carbon Pulse</a>
+                                <div class="project-status">
+                                    <span class="status-indicator working"></span>
+                                    <span class="status-text">Live</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-icons">
+                                <i class="devicon-spring-plain tech-icon" title="Spring Boot"></i>
+                                <i class="devicon-java-plain tech-icon" title="Java"></i>
+                                <i class="devicon-nodejs-plain tech-icon" title="Node.js"></i>
+                                <i class="devicon-react-original tech-icon" title="React"></i>
+                                <i class="devicon-tailwindcss-plain tech-icon" title="Tailwind CSS"></i>
+                            </div>
+
+                            <div class="project-text">
+                                <p>Real-time carbon tracking for Instagram, Discord, Netflix, and email platforms.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-page page4 empty-page">
+                    <div class="page-content project-details">
+                        <h3 class="details-title">Project Details</h3>
+                        <div class="details-text">
+                            <p>Microservices architecture tracking carbon emissions across digital platforms in real-time. Built for Octopus Hack 2024 with Spring Boot backend, Node.js CO₂ calculation service, and React dashboard featuring live data visualization.</p>
+                            <br>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="book-page page3 empty-page">
+                    <div class="page-content project-page">
+                        <div class="project-container">
+                            <img src="js/tab_story.jpeg"
+                                 alt="Tab Story - AI Browser Tab Manager"
                                  class="project-image">
-                            
+
+                            <div class="project-header">
+                                <a href="https://chromewebstore.google.com/detail/tab-story/nhjglpjgddjcjafdabmepgalnaejnleb" target="_blank" class="project-title">Tab Story</a>
+                                <div class="project-status">
+                                    <span class="status-indicator working"></span>
+                                    <span class="status-text">Live</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-icons">
+                                <i class="devicon-javascript-plain tech-icon" title="JavaScript"></i>
+                                <i class="devicon-chrome-plain tech-icon" title="Chrome Extension"></i>
+                                <i class="devicon-google-plain tech-icon" title="Gemini AI"></i>
+                            </div>
+
+                            <div class="project-text">
+                                <p>AI-powered Chrome extension for smart tab organization and management.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-page page4 empty-page">
+                    <div class="page-content project-details">
+                        <h3 class="details-title">Project Details</h3>
+                        <div class="details-text">
+                            <p>Built with vanilla JavaScript and Chrome Extension Manifest V3. Features Chrome Built-in AI APIs for local processing with Gemini API fallback.</p>
+                            <br>
+                            <p>Smart tab grouping, timeline view, instant search, and auto-backup. 100% local processing ensures complete privacy with no data tracking.</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="book-page page3 empty-page">
+                    <div class="page-content project-page">
+                        <div class="project-container">
+                            <img src="js/3rd.png"
+                                 alt="Restmood Project"
+                                 class="project-image">
+
                             <div class="project-header">
                                 <a href="https://deluxe-caramel-4de94a.netlify.app/" target="_blank" class="project-title">Restmood</a>
                                 <div class="project-status">
@@ -845,18 +756,17 @@
                                     <span class="status-text">Live</span>
                                 </div>
                             </div>
-                            
+
                             <div class="tech-icons">
                                 <i class="devicon-html5-plain tech-icon" title="HTML5"></i>
                                 <i class="devicon-css3-plain tech-icon" title="CSS3"></i>
                                 <i class="devicon-javascript-plain tech-icon" title="JavaScript"></i>
                                 <i class="devicon-react-original tech-icon" title="React"></i>
                             </div>
-                            
+
                             <div class="project-text">
-                                <p>A modern web application built with cutting-edge technologies. This project demonstrates full-stack development capabilities.</p>
-                                <a href="https://deluxe-caramel-4de94a.netlify.app/" target="_blank" class="project-link-text">🌐 https://deluxe-caramel-4de94a.netlify.app/</a>
-                                <a href="https://deluxe-caramel-4de94a.netlify.app/" target="_blank" class="project-link">Visit Live Site</a>
+                                <p>A modern web application built with cutting-edge technologies.</p>
+
                             </div>
                         </div>
                     </div>
@@ -871,44 +781,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="book-page page5 empty-page">
+                <div class="book-page empty-page">
                 </div>
-                <div class="book-page page6 empty-page">
-                </div>
-                <div class="book-page page7 empty-page">
-                </div>
-                <div class="book-page page8 empty-page">
-                </div>
-                <div class="book-page page9 empty-page">
-                </div>
-                <div class="book-page page10 empty-page">
-                </div>
-                <div class="book-page page11 empty-page">
-                </div>
-                <div class="book-page page12 empty-page">
-                </div>
-                <div class="book-page page13 empty-page">
-                </div>
-                <div class="book-page page14 empty-page">
-                </div>
-                <div class="book-page page15 empty-page">
-                </div>
-                <div class="book-page page16 empty-page">
-                </div>
-                <div class="book-page page17 empty-page">
-                </div>
-                <div class="book-page page18 empty-page">
-                </div>
-                <div class="book-page page19 empty-page">
-                </div>
-                <div class="book-page page20 empty-page" data-density="hard">
+                <div class="book-page empty-page" data-density="hard">
                 </div>
             </div>
 
     <script src="js/flipbook.js"></script>
     <script>
         let currentPage = 1;
-        const totalPages = 20;
+        const totalPages = 14;
         
         const flipbook = new St.PageFlip(document.getElementById('flipbook'), {
             width: 380,
@@ -931,33 +813,24 @@
 
         flipbook.on('flip', (e) => {
             currentPage = e.data + 1;
+            const coverPage = document.querySelector('.cover-page');
+
+            if (currentPage > 1) {
+                coverPage.classList.remove('glowing');
+            }
         });
 
         flipbook.on('changeState', (e) => {
-            console.log('Book state:', e.data);
             const coverPage = document.querySelector('.cover-page');
-            
+
             if (e.data === 'read' && currentPage <= 1) {
-                // Only glow when book is closed and on cover page
                 coverPage.classList.add('glowing');
             } else {
                 coverPage.classList.remove('glowing');
             }
         });
 
-        flipbook.on('flip', (e) => {
-            currentPage = e.data + 1;
-            const coverPage = document.querySelector('.cover-page');
-            
-            // Remove glow when flipping away from cover
-            if (currentPage > 1) {
-                coverPage.classList.remove('glowing');
-            }
-        });
-
         flipbook.on('init', (e) => {
-            console.log('Flipbook initialized successfully');
-            // Set initial glow on cover page
             document.querySelector('.cover-page').classList.add('glowing');
         });
     </script>

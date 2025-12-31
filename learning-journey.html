@@ -8,6 +8,8 @@
     <link href="https://db.onlinewebfonts.com/c/59a2ec451d6c057f39dbf6c66ce60959?family=brushield+Italic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <link rel="stylesheet" href="vertical-navbar.css">
     <style>
         * {
@@ -35,7 +37,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 30px 20px;
             animation: fadeInUp 0.8s ease-out;
         }
         
@@ -75,156 +77,11 @@
             transform: translateY(-2px);
         }
 
-        /* Glass Card Navbar */
-        .glass-card {
-            width: 60px;
-            height: calc(85vh - 40px);
-            background: 
-                linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%),
-                rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 
-                0 12px 40px rgba(0, 0, 0, 0.15),
-                0 4px 16px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4),
-                inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-                inset 0 0 20px 4px rgba(255, 255, 255, 0.05);
-            position: fixed;
-            top: 20px;
-            left: -50px;
-            overflow: hidden;
-            z-index: 2;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card.show {
-            left: 20px;
-        }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.8),
-                transparent
-            );
-        }
-
-        .glass-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 1px;
-            height: 100%;
-            background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.8),
-                transparent,
-                rgba(255, 255, 255, 0.3)
-            );
-        }
-
-        /* Navigation Icons */
-        .nav-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 
-                0 4px 16px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        }
-
-        .nav-icon:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-            box-shadow: 
-                0 6px 20px rgba(0, 0, 0, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-        }
-
-        .nav-icon:active {
-            transform: scale(0.9);
-            transition: transform 0.1s ease;
-        }
-
-        .home-icon {
-            margin: 20px auto 15px;
-        }
-
-        .twitter-icon, .github-icon, .kaggle-icon, .medium-icon, .linkedin-icon, .contact-icon, .audio-icon {
-            margin: 15px auto;
-        }
-
-        /* Navbar Toggle */
-        .navbar-toggle {
-            position: fixed;
-            top: 40%;
-            left: 75px;
-            transform: translateY(-50%);
-            z-index: 1000;
-            transition: left 0.3s ease-in-out;
-            opacity: 0.9;
-        }
-
-        .navbar-toggle.navbar-open {
-            left: 95px;
-        }
-
-        .toggle-arrow {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(15px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .toggle-arrow:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-            opacity: 1;
-        }
-
-        .toggle-arrow svg {
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-toggle.navbar-open .toggle-arrow svg {
-            transform: rotate(180deg);
-        }
-
         /* Dashboard Styles */
         .dashboard-header {
             text-align: center;
-            padding: 80px 20px 50px;
-            margin-bottom: 60px;
+            padding: 40px 20px 30px;
+            margin-bottom: 40px;
             position: relative;
         }
         
@@ -260,7 +117,7 @@
             font-size: 1.4rem;
             font-weight: 400;
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             max-width: 650px;
             margin-left: auto;
             margin-right: auto;
@@ -2653,14 +2510,6 @@
                 <polyline points="22,6 12,13 2,6" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
-        
-        <div class="nav-icon audio-icon" title="Toggle Audio">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="11,5 6,9 2,9 2,15 6,15 11,19" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="rgba(255,255,255,0.9)"/>
-                <line x1="23" y1="9" x2="17" y2="15" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
-                <line x1="17" y1="9" x2="23" y2="15" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </div>
     </div>
 
     <!-- Navbar Toggle Arrow -->
@@ -2678,81 +2527,73 @@
         <!-- Dashboard Header -->
         <div class="dashboard-header">
             <h1 class="dashboard-title">My Learning Journey</h1>
-            <p class="dashboard-subtitle">From beginner to developer - tracking my coding adventure</p>
         </div>
 
         <!-- Main Dashboard Grid -->
         <div class="dashboard-grid">
 
-            <!-- Professional Experience -->
-            <div class="experience-section" style="width: 100%; max-width: 900px; margin: 60px auto; padding: 0 20px;">
-                <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+            <div style="display: flex; gap: 30px; margin: 30px auto; padding: 0 20px; max-width: 1200px; align-items: flex-start; justify-content: center;">
+            <div class="experience-section" style="flex: 1; min-width: 1100px;">
+                <div class="section-header" style="text-align: center; margin-bottom: 30px;">
                     <h3 style="color: white; font-size: 28px; font-family: 'Inter', sans-serif; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px;">Technical Expertise</h3>
-                    <p style="color: rgba(255, 255, 255, 0.7); font-size: 15px; font-family: 'Inter', sans-serif; font-weight: 400;">Full-Stack Development • AI/ML • Systems Programming</p>
                 </div>
-                
-                <div class="experience-timeline" style="display: grid; gap: 32px;">
-                    <!-- Senior Developer Level -->
-                    <div class="experience-item" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
-                        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);"></div>
-                        <div style="display: flex; justify-content: between; align-items: start; margin-bottom: 20px; gap: 20px;">
-                            <div style="flex: 1;">
-                                <h4 style="color: white; font-size: 20px; font-weight: 700; margin-bottom: 8px; font-family: 'Inter', sans-serif;">AI/ML Engineer</h4>
-                                <p style="color: rgba(255, 255, 255, 0.8); font-size: 15px; font-weight: 500; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Advanced Machine Learning & Data Science</p>
+                <div class="experience-timeline" style="display: grid; gap: 32px; width: 1100px; margin: 0; position: relative;">
+                    <div style="display: flex; align-items: center; gap: 30px; position: relative;">
+                        <div class="experience-item" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 32px; position: relative; overflow: hidden; width: 700px; z-index: 1;">
+                            <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #f093fb 0%, #f5576c 100%);"></div>
+                            <div style="margin-bottom: 20px;">
+                                <h4 style="color: white; font-size: 20px; font-weight: 700; margin-bottom: 8px; font-family: 'Inter', sans-serif;">Java Backend Development</h4>
+                                <p style="color: rgba(255, 255, 255, 0.8); font-size: 15px; font-weight: 500; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Learning Spring Boot & REST APIs</p>
                             </div>
-                            <div style="text-align: right;">
-                                <span style="color: rgba(255, 255, 255, 0.9); font-size: 13px; font-weight: 600; font-family: 'Inter', sans-serif; background: rgba(102, 126, 234, 0.2); padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(102, 126, 234, 0.3);">2024 - Present</span>
+                            <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+                                <span style="background: rgba(0, 89, 156, 0.25); color: #4DB6E6; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(0, 89, 156, 0.4);">Java</span>
+                                <span style="background: rgba(247, 223, 30, 0.25); color: #F1C40F; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(247, 223, 30, 0.4);">Spring Boot</span>
+                                <span style="background: rgba(255, 107, 107, 0.25); color: #FF7F7F; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(255, 107, 107, 0.4);">REST APIs</span>
+                                <span style="background: rgba(1, 50, 67, 0.25); color: #40E0D0; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(1, 50, 67, 0.4);">MySQL</span>
+                                <span style="background: rgba(88, 166, 255, 0.25); color: #58A6FF; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(88, 166, 255, 0.4);">GitHub</span>
                             </div>
+                            <p style="color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.7; margin: 0; font-family: 'Inter', sans-serif; font-weight: 400;">Built web applications using <strong>Java and Spring Boot framework</strong>. Developed REST APIs for backend functionality and worked with <strong>MySQL database</strong>. Created practice projects to understand backend development concepts. All code hosted on <strong>GitHub</strong>.</p>
                         </div>
-                        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-                            <span style="background: rgba(55, 118, 171, 0.25); color: #4A9EFF; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(55, 118, 171, 0.4);">TensorFlow</span>
-                            <span style="background: rgba(255, 149, 0, 0.25); color: #FFB347; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(255, 149, 0, 0.4);">PyTorch</span>
-                            <span style="background: rgba(1, 50, 67, 0.25); color: #40E0D0; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(1, 50, 67, 0.4);">Scikit-Learn</span>
-                            <span style="background: rgba(255, 107, 107, 0.25); color: #FF7F7F; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(255, 107, 107, 0.4);">Pandas</span>
-                        </div>
-                        <p style="color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.7; margin: 0; font-family: 'Inter', sans-serif; font-weight: 400;">Developed and deployed machine learning models achieving <strong>95%+ accuracy</strong>. Built neural networks for computer vision and NLP tasks. Optimized data pipelines processing <strong>100K+ records</strong> with advanced feature engineering and model tuning.</p>
+                        <div id="java-lottie" style="width: 300px; height: 300px;"></div>
                     </div>
-                    
-                    <!-- Full-Stack Developer -->
-                    <div class="experience-item" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
-                        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #f093fb 0%, #f5576c 100%);"></div>
-                        <div style="display: flex; justify-content: between; align-items: start; margin-bottom: 20px; gap: 20px;">
-                            <div style="flex: 1;">
-                                <h4 style="color: white; font-size: 20px; font-weight: 700; margin-bottom: 8px; font-family: 'Inter', sans-serif;">Full-Stack Developer</h4>
-                                <p style="color: rgba(255, 255, 255, 0.8); font-size: 15px; font-weight: 500; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Enterprise Web Applications & APIs</p>
-                            </div>
-                            <div style="text-align: right;">
-                                <span style="color: rgba(255, 255, 255, 0.9); font-size: 13px; font-weight: 600; font-family: 'Inter', sans-serif; background: rgba(240, 147, 251, 0.2); padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(240, 147, 251, 0.3);">2023 - 2024</span>
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-                            <span style="background: rgba(0, 89, 156, 0.25); color: #4DB6E6; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(0, 89, 156, 0.4);">Java Spring</span>
-                            <span style="background: rgba(227, 79, 38, 0.25); color: #FF6347; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(227, 79, 38, 0.4);">React.js</span>
-                            <span style="background: rgba(21, 114, 182, 0.25); color: #4A9EFF; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(21, 114, 182, 0.4);">PostgreSQL</span>
-                            <span style="background: rgba(247, 223, 30, 0.25); color: #F1C40F; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(247, 223, 30, 0.4);">Node.js</span>
-                        </div>
-                        <p style="color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.7; margin: 0; font-family: 'Inter', sans-serif; font-weight: 400;">Architected scalable web applications serving <strong>10K+ users</strong>. Built RESTful APIs with <strong>99.9% uptime</strong>. Implemented responsive front-end interfaces and optimized database queries reducing response time by <strong>60%</strong>.</p>
-                    </div>
-                    
+
                     <!-- Systems Programmer -->
-                    <div class="experience-item" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
-                        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);"></div>
-                        <div style="display: flex; justify-content: between; align-items: start; margin-bottom: 20px; gap: 20px;">
-                            <div style="flex: 1;">
-                                <h4 style="color: white; font-size: 20px; font-weight: 700; margin-bottom: 8px; font-family: 'Inter', sans-serif;">Systems Programmer</h4>
-                                <p style="color: rgba(255, 255, 255, 0.8); font-size: 15px; font-weight: 500; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Low-Level Programming & Algorithms</p>
+                    <div style="display: flex; align-items: center; gap: 30px; position: relative; justify-self: end;">
+                        <img src="book/js/dsa.png" alt="DSA" style="width: 300px; height: 300px; object-fit: contain;">
+                        <div class="experience-item" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 32px; position: relative; overflow: hidden; width: 700px; z-index: 1;">
+                            <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);"></div>
+                            <div style="margin-bottom: 20px;">
+                                <h4 style="color: white; font-size: 20px; font-weight: 700; margin-bottom: 8px; font-family: 'Inter', sans-serif;">Programming Fundamentals</h4>
+                                <p style="color: rgba(255, 255, 255, 0.8); font-size: 15px; font-weight: 500; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Core Development Skills</p>
                             </div>
-                            <div style="text-align: right;">
-                                <span style="color: rgba(255, 255, 255, 0.9); font-size: 13px; font-weight: 600; font-family: 'Inter', sans-serif; background: rgba(79, 172, 254, 0.2); padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(79, 172, 254, 0.3);">2022 - 2023</span>
+                            <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+                                <span style="background: rgba(255, 107, 107, 0.25); color: #FF7F7F; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(255, 107, 107, 0.4);">Java</span>
+                                <span style="background: rgba(55, 118, 171, 0.25); color: #4A9EFF; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(55, 118, 171, 0.4);">Python</span>
+                                <span style="background: rgba(128, 128, 128, 0.25); color: #B8B8B8; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(128, 128, 128, 0.4);">DSA</span>
+                                <span style="background: rgba(106, 90, 205, 0.25); color: #9370DB; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(106, 90, 205, 0.4);">Git</span>
                             </div>
+                            <p style="color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.7; margin: 0; font-family: 'Inter', sans-serif; font-weight: 400;">Practiced <strong>Java fundamentals and problem-solving</strong> through coding challenges. Worked with data structures and algorithms. Used Git for version control.</p>
                         </div>
-                        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-                            <span style="background: rgba(255, 107, 107, 0.25); color: #FF7F7F; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(255, 107, 107, 0.4);">C/C++</span>
-                            <span style="background: rgba(55, 118, 171, 0.25); color: #4A9EFF; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(55, 118, 171, 0.4);">Python</span>
-                            <span style="background: rgba(128, 128, 128, 0.25); color: #B8B8B8; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(128, 128, 128, 0.4);">Data Structures</span>
-                            <span style="background: rgba(106, 90, 205, 0.25); color: #9370DB; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(106, 90, 205, 0.4);">Algorithms</span>
+                    </div>
+
+                    <!-- Senior Developer Level -->
+                    <div style="display: flex; align-items: center; gap: 30px; position: relative;">
+                        <div class="experience-item" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 32px; position: relative; overflow: hidden; width: 700px; z-index: 1;">
+                            <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);"></div>
+                            <div style="margin-bottom: 20px;">
+                                <h4 style="color: white; font-size: 20px; font-weight: 700; margin-bottom: 8px; font-family: 'Inter', sans-serif;">Machine Learning Projects</h4>
+                                <p style="color: rgba(255, 255, 255, 0.8); font-size: 15px; font-weight: 500; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Building AI Solutions with Python</p>
+                            </div>
+                            <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+                                <span style="background: rgba(55, 118, 171, 0.25); color: #4A9EFF; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(55, 118, 171, 0.4);">Python</span>
+                                <span style="background: rgba(255, 149, 0, 0.25); color: #FFB347; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(255, 149, 0, 0.4);">NumPy</span>
+                                <span style="background: rgba(1, 50, 67, 0.25); color: #40E0D0; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(1, 50, 67, 0.4);">Pandas</span>
+                                <span style="background: rgba(255, 107, 107, 0.25); color: #FF7F7F; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(255, 107, 107, 0.4);">Scikit-Learn</span>
+                                <span style="background: rgba(32, 201, 151, 0.25); color: #20C997; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid rgba(32, 201, 151, 0.4);">Kaggle</span>
+                            </div>
+                            <p style="color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.7; margin: 0; font-family: 'Inter', sans-serif; font-weight: 400;">Built <strong>classification and prediction models</strong> using Python and ML libraries. Explored <strong>Kaggle datasets and competitions</strong> to practice with real-world data. Worked on data preprocessing, visualization, and model training projects.</p>
                         </div>
-                        <p style="color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.7; margin: 0; font-family: 'Inter', sans-serif; font-weight: 400;">Mastered core programming fundamentals and complex algorithms. Implemented efficient data structures achieving <strong>O(log n)</strong> complexity. Built high-performance applications with optimized memory management and <strong>zero memory leaks</strong>.</p>
+                        <iframe src="https://lottie.host/embed/8489b782-cfbc-444e-b39d-d4138cbc7c62/4dgj8kvyQo.lottie" style="width: 300px; height: 300px; border: none; background: transparent;" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -2777,208 +2618,277 @@
                 </div>
             </div>
 
-            <!-- Contribution Cards Section -->
-            <div class="contributions-section" style="margin: 60px auto; width: 100%; max-width: 1200px;">
-                <h2 style="text-align: center; color: rgba(255, 255, 255, 0.9); font-family: 'brushield Italic', sans-serif; font-size: 28px; margin-bottom: 20px; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);">My Contributions</h2>
-                
-                <div class="cards-container" style="position: relative; overflow: hidden; padding: 20px 0;">
-                    <div class="cards-scroll" id="cards-scroll" style="display: flex; gap: 20px; transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); padding: 0 200px;">
-                        
-                        <!-- Contribution Card 1 -->
-                        <div class="contribution-card" style="min-width: 200px; height: 220px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 12px; padding: 16px; position: relative; overflow: hidden; transition: transform 0.3s ease; flex-shrink: 0;">
-                            <!-- Background Pattern -->
-                            <div style="position: absolute; top: -50%; right: -50%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
-                            
-                            <!-- Icon and Title -->
-                            <div style="display: flex; align-items: center; margin-bottom: 12px;">
-                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 12px; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);">
-                                    <span style="font-size: 20px;">🚀</span>
-                                </div>
-                                <h4 style="color: white; font-family: 'brushield Italic', sans-serif; font-size: 16px; font-weight: 600; margin: 0;">Project Alpha</h4>
-                            </div>
-                            
-                            <!-- Description -->
-                            <p style="color: rgba(255, 255, 255, 0.8); font-size: 12px; line-height: 1.4; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Full-stack web application with React and Node.js featuring real-time capabilities.</p>
-                            
-                            <!-- Tech Stack -->
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2)); color: #667eea; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(102, 126, 234, 0.3);">React</span>
-                                <span style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2)); color: #667eea; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(102, 126, 234, 0.3);">Node.js</span>
-                                <span style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2)); color: #667eea; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(102, 126, 234, 0.3);">MongoDB</span>
-                            </div>
-                        </div>
+            </div>
+            <!-- End Technical Expertise Section -->
 
-                        <!-- Contribution Card 2 -->
-                        <div class="contribution-card" style="min-width: 200px; height: 220px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 12px; padding: 16px; position: relative; overflow: hidden; transition: transform 0.3s ease; flex-shrink: 0;">
-                            <!-- Background Pattern -->
-                            <div style="position: absolute; top: -50%; right: -50%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(240, 147, 251, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
-                            
-                            <!-- Icon and Title -->
-                            <div style="display: flex; align-items: center; margin-bottom: 12px;">
-                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 12px; box-shadow: 0 4px 12px rgba(240, 147, 251, 0.3);">
-                                    <span style="font-size: 20px;">🤖</span>
-                                </div>
-                                <h4 style="color: white; font-family: 'brushield Italic', sans-serif; font-size: 16px; font-weight: 600; margin: 0;">AI Assistant</h4>
-                            </div>
-                            
-                            <!-- Description -->
-                            <p style="color: rgba(255, 255, 255, 0.8); font-size: 12px; line-height: 1.4; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Intelligent chatbot using machine learning and natural language processing.</p>
-                            
-                            <!-- Tech Stack -->
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.2), rgba(245, 87, 108, 0.2)); color: #f093fb; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(240, 147, 251, 0.3);">Python</span>
-                                <span style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.2), rgba(245, 87, 108, 0.2)); color: #f093fb; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(240, 147, 251, 0.3);">TensorFlow</span>
-                                <span style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.2), rgba(245, 87, 108, 0.2)); color: #f093fb; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(240, 147, 251, 0.3);">NLP</span>
-                            </div>
-                        </div>
+            <!-- My last Contributions Section (Live GitHub Data) -->
+            <div class="contributions-section" style="width: 360px; padding: 20px; margin: 30px auto;">
+                <h3 style="text-align: center; color: rgba(255, 255, 255, 0.9); font-family: 'brushield Italic', sans-serif; font-size: 20px; margin-bottom: 25px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);">My last Contributions</h3>
 
-                        <!-- Contribution Card 3 -->
-                        <div class="contribution-card" style="min-width: 200px; height: 220px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 12px; padding: 16px; position: relative; overflow: hidden; transition: transform 0.3s ease; flex-shrink: 0;">
-                            <!-- Background Pattern -->
-                            <div style="position: absolute; top: -50%; right: -50%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
-                            
-                            <!-- Icon and Title -->
-                            <div style="display: flex; align-items: center; margin-bottom: 12px;">
-                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 12px; box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);">
-                                    <span style="font-size: 20px;">📱</span>
-                                </div>
-                                <h4 style="color: white; font-family: 'brushield Italic', sans-serif; font-size: 16px; font-weight: 600; margin: 0;">Mobile App</h4>
-                            </div>
-                            
-                            <!-- Description -->
-                            <p style="color: rgba(255, 255, 255, 0.8); font-size: 12px; line-height: 1.4; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Cross-platform mobile application with native performance and intuitive interface.</p>
-                            
-                            <!-- Tech Stack -->
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 242, 254, 0.2)); color: #4facfe; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(79, 172, 254, 0.3);">Flutter</span>
-                                <span style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 242, 254, 0.2)); color: #4facfe; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(79, 172, 254, 0.3);">Dart</span>
-                                <span style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 242, 254, 0.2)); color: #4facfe; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(79, 172, 254, 0.3);">Firebase</span>
-                            </div>
-                        </div>
-
-                        <!-- Contribution Card 4 -->
-                        <div class="contribution-card" style="min-width: 200px; height: 220px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 12px; padding: 16px; position: relative; overflow: hidden; transition: transform 0.3s ease; flex-shrink: 0;">
-                            <!-- Background Pattern -->
-                            <div style="position: absolute; top: -50%; right: -50%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(168, 237, 234, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
-                            
-                            <!-- Icon and Title -->
-                            <div style="display: flex; align-items: center; margin-bottom: 12px;">
-                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 12px; box-shadow: 0 4px 12px rgba(168, 237, 234, 0.3);">
-                                    <span style="font-size: 20px;">📊</span>
-                                </div>
-                                <h4 style="color: white; font-family: 'brushield Italic', sans-serif; font-size: 16px; font-weight: 600; margin: 0;">Data Analytics</h4>
-                            </div>
-                            
-                            <!-- Description -->
-                            <p style="color: rgba(255, 255, 255, 0.8); font-size: 12px; line-height: 1.4; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Comprehensive data visualization dashboards and analytics tools for insights.</p>
-                            
-                            <!-- Tech Stack -->
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span style="background: linear-gradient(135deg, rgba(168, 237, 234, 0.2), rgba(254, 214, 227, 0.2)); color: #a8edea; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(168, 237, 234, 0.3);">Python</span>
-                                <span style="background: linear-gradient(135deg, rgba(168, 237, 234, 0.2), rgba(254, 214, 227, 0.2)); color: #a8edea; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(168, 237, 234, 0.3);">Pandas</span>
-                                <span style="background: linear-gradient(135deg, rgba(168, 237, 234, 0.2), rgba(254, 214, 227, 0.2)); color: #a8edea; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 500; border: 1px solid rgba(168, 237, 234, 0.3);">D3.js</span>
-                            </div>
-                        </div>
-
+                <!-- GitHub Contributions Card -->
+                <div id="github-contrib-card" class="contrib-card" style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); min-height: 400px; max-height: 500px; overflow-y: auto;">
+                    <!-- Loading State -->
+                    <div id="loading-contrib" style="text-align: center; padding: 40px 0; color: rgba(255, 255, 255, 0.7); font-family: 'Inter', sans-serif; font-size: 14px;">
+                        <div style="margin-bottom: 10px;">⏳</div>
+                        Loading contributions...
                     </div>
-                    
+
+                    <!-- Contributions Content (populated by JS) -->
+                    <div id="contrib-content" style="display: none;"></div>
                 </div>
             </div>
-            
-            <script>
-            // Simple Auto-scroll for Contribution Cards
-            document.addEventListener('DOMContentLoaded', function() {
-                let currentScrollIndex = 0;
-                const cardWidth = 220; // card width + gap (200 + 20)
-                const maxCards = 4;
-                const cardsScroll = document.getElementById('cards-scroll');
-                
-                // Pure auto-scroll function
-                setInterval(() => {
-                    currentScrollIndex++;
-                    
-                    // Reset to beginning when reaching the end
-                    if (currentScrollIndex >= maxCards) {
-                        currentScrollIndex = 0;
+
+            <!-- Chrome Extension Floating Button - Top Right -->
+            <div class="extension-float">
+                <div class="extension-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/>
+                    </svg>
+                </div>
+                <div class="extension-panel">
+                    <h4>Boost Your Productivity</h4>
+                    <p>Download Tab Story - Free Chrome Extension</p>
+                    <a href="https://chromewebstore.google.com/detail/tab-story/nhjglpjgddjcjafdabmepgalnaejnleb" target="_blank" rel="noopener noreferrer" class="extension-link">
+                        <img src="https://i0.wp.com/yonatankra.com/wp-content/uploads/2022/08/chrome-webstore.png?w=496&ssl=1" alt="Chrome Web Store">
+                    </a>
+                </div>
+            </div>
+
+            <style>
+                /* Custom Scrollbar for Contributions Card */
+                #github-contrib-card::-webkit-scrollbar {
+                    width: 4px;
+                }
+
+                #github-contrib-card::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+
+                #github-contrib-card::-webkit-scrollbar-thumb {
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 4px;
+                }
+
+                #github-contrib-card::-webkit-scrollbar-thumb:hover {
+                    background: rgba(255, 255, 255, 0.15);
+                }
+
+                /* Firefox */
+                #github-contrib-card {
+                    scrollbar-width: thin;
+                    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+                }
+
+                /* Chrome Extension Floating Button */
+                .extension-float {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 9999;
+                    transition: transform 0.3s ease, opacity 0.3s ease;
+                }
+
+                .extension-float.hidden {
+                    transform: translateY(-100px);
+                    opacity: 0;
+                    pointer-events: none;
+                }
+
+                /* Circular Button */
+                .extension-circle {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(10px);
+                    -webkit-backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.4);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    box-shadow:
+                        0 4px 16px rgba(0, 0, 0, 0.1),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+                    transition: all 0.3s ease;
+                    position: relative;
+                }
+
+                .extension-circle:hover {
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: scale(1.05);
+                    box-shadow:
+                        0 6px 20px rgba(0, 0, 0, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+                }
+
+                .extension-circle:active {
+                    transform: scale(0.9);
+                    transition: transform 0.1s ease;
+                }
+
+                /* Glassmorphism Panel */
+                .extension-panel {
+                    position: absolute;
+                    top: 70px;
+                    right: 0;
+                    width: 250px;
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    border-radius: 12px;
+                    padding: 20px;
+                    text-align: center;
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateY(-10px);
+                    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                }
+
+                .extension-float:hover .extension-panel {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+                }
+
+                .extension-panel h4 {
+                    color: rgba(255, 255, 255, 0.95);
+                    font-family: 'brushield Italic', sans-serif;
+                    font-size: 20px;
+                    margin: 0 0 10px 0;
+                    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+                }
+
+                .extension-panel p {
+                    color: rgba(255, 255, 255, 0.8);
+                    font-family: 'Inter', sans-serif;
+                    font-size: 13px;
+                    margin: 0 0 15px 0;
+                }
+
+                .extension-link {
+                    display: block;
+                    transition: transform 0.3s ease;
+                }
+
+                .extension-link:hover {
+                    transform: scale(1.05);
+                }
+
+                .extension-link img {
+                    width: 100%;
+                    max-width: 200px;
+                    height: auto;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                }
+
+                /* Glassmorphism Book Shelf Hover Effects */
+                .card-1:hover {
+                    transform: translateY(-10px) translateX(5px);
+                    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+                    border-color: rgba(255, 255, 255, 0.3) !important;
+                    background: rgba(255, 255, 255, 0.15) !important;
+                    z-index: 10 !important;
+                }
+
+                .card-2:hover {
+                    transform: translateY(-10px) translateX(5px);
+                    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+                    border-color: rgba(255, 255, 255, 0.3) !important;
+                    background: rgba(255, 255, 255, 0.15) !important;
+                    z-index: 10 !important;
+                }
+
+                .card-3:hover {
+                    transform: translateY(-10px) translateX(5px);
+                    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+                    border-color: rgba(255, 255, 255, 0.3) !important;
+                    background: rgba(255, 255, 255, 0.15) !important;
+                    z-index: 10 !important;
+                }
+
+                /* Responsive Design */
+                @media (max-width: 1024px) {
+                    .post-cards-shelf {
+                        height: 420px !important;
                     }
-                    
-                    // Apply smooth scroll
-                    const translateX = -currentScrollIndex * cardWidth;
-                    cardsScroll.style.transform = `translateX(${translateX}px)`;
-                    
-                }, 3000); // Scroll every 3 seconds
-            });
-            </script>
 
-            <!-- Skills Development & Contributions Section -->
-            <div class="skills-contributions-row">
-                <!-- Skills Progress Chart (Smaller) -->
-                <div class="chart-container skills-section-small">
-                    <div class="chart-header">
-                        <h3>Skills Development</h3>
-                        <p>Professional experience and expertise across programming languages and domains</p>
-                    </div>
-                    <div class="radar-chart-container">
-                        <svg class="radar-chart" viewBox="0 0 400 400" id="radarChart">
-                            <!-- Radar chart will be generated by JavaScript -->
-                        </svg>
-                        <div class="radar-legend">
-                            <div class="legend-item">
-                                <div class="legend-color frontend"></div>
-                                <span>HTML/CSS</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color javascript"></div>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color backend"></div>
-                                <span>Python</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color java"></div>
-                                <span>Java</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color data"></div>
-                                <span>Data Analysis</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color ai"></div>
-                                <span>Machine Learning</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color cloud"></div>
-                                <span>Git/GitHub</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    .card-1 {
+                        left: 0 !important;
+                        max-width: 600px !important;
+                    }
 
-                <!-- Contributions Section (Small) -->
-                <div class="chart-container contributions-section-small">
-                    <div class="chart-header">
-                        <h3>Contributions</h3>
-                        <p>GitHub activity overview</p>
-                    </div>
-                    <div class="contributions-content">
-                        <!-- Content will be added later -->
-                        <div class="contribution-placeholder">
-                            <div class="contribution-icon">📊</div>
-                            <div class="contribution-stats">
-                                <div class="stat-item">
-                                    <span class="stat-value">--</span>
-                                    <span class="stat-label">Commits</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-value">--</span>
-                                    <span class="stat-label">Repos</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    .card-2 {
+                        top: 15px !important;
+                        left: 20px !important;
+                        max-width: 600px !important;
+                    }
+
+                    .card-3 {
+                        top: 30px !important;
+                        left: 40px !important;
+                        max-width: 600px !important;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .post-cards-section {
+                        max-width: 100% !important;
+                        padding: 10px !important;
+                        margin-bottom: 40px !important;
+                    }
+
+                    .post-cards-shelf {
+                        height: 550px !important;
+                        padding: 0 10px !important;
+                    }
+
+                    .post-card {
+                        height: auto !important;
+                        min-height: 380px;
+                        max-width: 100% !important;
+                    }
+
+                    .card-1 {
+                        left: 0 !important;
+                        top: 0 !important;
+                    }
+
+                    .card-2 {
+                        top: 10px !important;
+                        left: 10px !important;
+                    }
+
+                    .card-3 {
+                        top: 20px !important;
+                        left: 20px !important;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .post-cards-shelf {
+                        height: 600px !important;
+                    }
+
+                    .card-1 {
+                        top: 0 !important;
+                        left: 0 !important;
+                    }
+
+                    .card-2 {
+                        top: 5px !important;
+                        left: 5px !important;
+                    }
+
+                    .card-3 {
+                        top: 10px !important;
+                        left: 10px !important;
+                    }
+                }
+            </style>
 
 
         </div>
@@ -3026,10 +2936,10 @@
         let isAudioMuted = localStorage.getItem('audioMuted') !== 'false';
         
         function initAudio() {
-            backgroundAudio = new Audio('jungle.mp3');
-            backgroundAudio.loop = true;
-            backgroundAudio.volume = 0.3;
-            backgroundAudio.preload = 'auto';
+            // backgroundAudio = new Audio('jungle.mp3');
+            // backgroundAudio.loop = true;
+            // backgroundAudio.volume = 0.3;
+            // backgroundAudio.preload = 'auto';
         }
         
         function toggleAudio() {
@@ -3053,9 +2963,7 @@
                 `;
             } else {
                 if (backgroundAudio) {
-                    backgroundAudio.play().catch(e => {
-                        console.log('Autoplay prevented, user interaction required:', e);
-                    });
+                    backgroundAudio.play().catch(e => {});
                 }
                 audioIcon.innerHTML = `
                     <polygon points="11,5 6,9 2,9 2,15 6,15 11,19" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="rgba(255,255,255,0.9)"/>
@@ -3096,11 +3004,7 @@
                 const day = document.createElement('div');
                 day.className = 'contribution-day';
                 
-                // Generate realistic learning pattern
-                // First 60 days (Feb-March): mostly no activity (just starting)
-                // Days 61-120: light activity (learning basics)
-                // Days 121-240: moderate activity (building skills)
-                // Days 241+: higher activity (more consistent practice)
+                
                 let level = 0;
                 if (i < 60) {
                     level = Math.random() < 0.8 ? 0 : 1;
@@ -3126,10 +3030,14 @@
 
         function generateRadarChart() {
             const svg = document.getElementById('radarChart');
+            if (!svg) {
+                return;
+            }
+
             const centerX = 200;
             const centerY = 200;
             const radius = 150;
-            
+
             // Skills data based on learning journey
             const skills = [
                 { name: 'HTML/CSS', value: 0.7, color: '#4ecdc4' },
@@ -3140,7 +3048,7 @@
                 { name: 'Machine Learning', value: 0.3, color: '#4facfe' },
                 { name: 'Git/GitHub', value: 0.6, color: '#43e97b' }
             ];
-            
+
             // Clear existing content
             svg.innerHTML = '';
             
@@ -3226,7 +3134,11 @@
 
         // Project expand/collapse functionality
         function initializeProjectToggles() {
-            document.querySelectorAll('.expand-toggle').forEach(toggle => {
+            const toggles = document.querySelectorAll('.expand-toggle');
+            if (!toggles || toggles.length === 0) {
+                return;
+            }
+            toggles.forEach(toggle => {
                 toggle.addEventListener('click', function() {
                     const projectItem = this.closest('.project-item');
                     projectItem.classList.toggle('minimized');
@@ -3248,6 +3160,9 @@
         // Generate Professional contribution heatmap
         function generateProfessionalHeatmap() {
             const grid = document.getElementById('professionalHeatmap');
+            if (!grid) {
+                return;
+            }
             const totalDays = 70; // 10 columns × 7 rows for enhanced view
             
             for (let i = 0; i < totalDays; i++) {
@@ -3288,6 +3203,9 @@
 
         function scrollSkillsStrip(direction) {
             const strip = document.getElementById('skillsStrip');
+            if (!strip) {
+                return;
+            }
             const container = strip.parentElement;
             const maxScroll = strip.scrollWidth - container.clientWidth;
             
@@ -3306,6 +3224,9 @@
         // Auto-scroll functionality (optional)
         function autoScrollSkillsStrip() {
             const strip = document.getElementById('skillsStrip');
+            if (!strip) {
+                return;
+            }
             const container = strip.parentElement;
             const maxScroll = strip.scrollWidth - container.clientWidth;
             
@@ -3318,16 +3239,237 @@
             strip.style.transform = `translateX(-${currentScrollPosition}px)`;
         }
 
+        // GitHub Contributions Fetcher - Organizations Only
+        async function fetchGitHubContributions() {
+            const GITHUB_USERNAME = 'Rawdyrathaur';
+            const loadingEl = document.getElementById('loading-contrib');
+            const contentEl = document.getElementById('contrib-content');
+
+            if (!loadingEl || !contentEl) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events/public?per_page=100`);
+
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.status}`);
+                }
+
+                const events = await response.json();
+
+                // Only show contributions to OTHER organizations
+                const contributions = [];
+                const seenUrls = new Set(); // Track unique items by URL
+
+                events.forEach(event => {
+                    // Skip own repos
+                    const repoOwner = event.repo.name.split('/')[0];
+                    if (repoOwner.toLowerCase() === GITHUB_USERNAME.toLowerCase()) {
+                        return;
+                    }
+
+                    // Pull Requests (opened, closed, merged)
+                    if (event.type === 'PullRequestEvent') {
+                        const pr = event.payload.pull_request;
+                        if (pr && pr.title && pr.html_url && pr.number) {
+                            // Skip duplicates
+                            if (seenUrls.has(pr.html_url)) return;
+                            seenUrls.add(pr.html_url);
+
+                            contributions.push({
+                                type: 'pr',
+                                title: pr.title,
+                                repo: event.repo.name,
+                                status: pr.merged_at ? 'merged' : (pr.state === 'open' ? 'open' : 'closed'),
+                                url: pr.html_url,
+                                number: pr.number,
+                                priority: pr.merged_at ? 1 : (pr.state === 'open' ? 2 : 3)
+                            });
+                        }
+                    }
+                    // PR Reviews
+                    else if (event.type === 'PullRequestReviewEvent') {
+                        const pr = event.payload.pull_request;
+                        const review = event.payload.review;
+                        if (pr && pr.title && review && review.html_url && pr.number) {
+                            const uniqueKey = `review-${pr.html_url}`;
+                            if (seenUrls.has(uniqueKey)) return;
+                            seenUrls.add(uniqueKey);
+
+                            contributions.push({
+                                type: 'pr',
+                                title: pr.title,
+                                repo: event.repo.name,
+                                status: pr.merged_at ? 'merged' : (pr.state === 'open' ? 'open' : 'closed'),
+                                url: review.html_url,
+                                number: pr.number,
+                                priority: pr.merged_at ? 1 : (pr.state === 'open' ? 2 : 3)
+                            });
+                        }
+                    }
+                    // Issues (any action: opened, closed, etc.)
+                    else if (event.type === 'IssuesEvent') {
+                        const issue = event.payload.issue;
+                        if (issue && issue.title && issue.html_url && issue.number) {
+                            // Skip duplicates
+                            if (seenUrls.has(issue.html_url)) return;
+                            seenUrls.add(issue.html_url);
+
+                            contributions.push({
+                                type: 'issue',
+                                title: issue.title,
+                                repo: event.repo.name,
+                                status: issue.state,
+                                url: issue.html_url,
+                                number: issue.number,
+                                priority: issue.state === 'open' ? 4 : 5
+                            });
+                        }
+                    }
+                    // Comments on Issues/PRs
+                    else if (event.type === 'IssueCommentEvent') {
+                        const issue = event.payload.issue;
+                        const comment = event.payload.comment;
+                        if (issue && issue.title && comment && comment.html_url && issue.number) {
+                            // Skip duplicate comments (use issue URL to track unique issues)
+                            const uniqueKey = `comment-${event.repo.name}#${issue.number}`;
+                            if (seenUrls.has(uniqueKey)) return;
+                            seenUrls.add(uniqueKey);
+
+                            contributions.push({
+                                type: 'comment',
+                                title: issue.title,
+                                repo: event.repo.name,
+                                url: comment.html_url,
+                                number: issue.number,
+                                priority: 6
+                            });
+                        }
+                    }
+                    // PR Review Comments (code comments)
+                    else if (event.type === 'PullRequestReviewCommentEvent') {
+                        const pr = event.payload.pull_request;
+                        const comment = event.payload.comment;
+                        if (pr && pr.title && comment && comment.html_url && pr.number) {
+                            const uniqueKey = `prcomment-${event.repo.name}#${pr.number}`;
+                            if (seenUrls.has(uniqueKey)) return;
+                            seenUrls.add(uniqueKey);
+
+                            contributions.push({
+                                type: 'comment',
+                                title: pr.title,
+                                repo: event.repo.name,
+                                url: comment.html_url,
+                                number: pr.number,
+                                priority: 6
+                            });
+                        }
+                    }
+                });
+
+                // Sort by priority: Merged PRs > Open PRs > Closed PRs > Open Issues > Closed Issues > Comments
+                contributions.sort((a, b) => a.priority - b.priority);
+
+                // Limit to first 6 contributions
+                const limitedContributions = contributions.slice(0, 6);
+
+                // Render contributions
+                renderContributions(limitedContributions);
+
+                // Hide loading, show content
+                loadingEl.style.display = 'none';
+                contentEl.style.display = 'block';
+
+            } catch (error) {
+                loadingEl.innerHTML = `
+                    <div style="color: rgba(255, 107, 53, 0.8); font-size: 12px; text-align: center;">
+                        ⚠️ Unable to load contributions
+                    </div>
+                `;
+            }
+        }
+
+        function renderContributions(contributions) {
+            const contentEl = document.getElementById('contrib-content');
+
+            if (contributions.length === 0) {
+                contentEl.innerHTML = '<div style="text-align: center; padding: 40px 0; color: rgba(255, 255, 255, 0.5); font-size: 12px; font-family: \'Inter\', sans-serif;">No contributions found</div>';
+                return;
+            }
+
+            let html = '';
+
+            contributions.forEach(contrib => {
+                let iconSvg = '', color = '';
+
+                if (contrib.type === 'pr') {
+                    if (contrib.status === 'merged') {
+                        color = '#a855f7'; // Bright Purple
+                        // Real GitHub git-merge octicon
+                        iconSvg = '<svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path fill="' + color + '" d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path></svg>';
+                    } else if (contrib.status === 'open') {
+                        color = '#10b981'; // Bright Green
+                        // Real GitHub git-pull-request octicon
+                        iconSvg = '<svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path fill="' + color + '" d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></svg>';
+                    } else {
+                        color = '#ef4444'; // Bright Red
+                        // Real GitHub git-pull-request-closed octicon
+                        iconSvg = '<svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path fill="' + color + '" d="M3.25 1A2.25 2.25 0 0 1 4 5.372v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.251 2.251 0 0 1 3.25 1Zm9.5 14a2.25 2.25 0 1 1 0-4.5 2.25 2.25 0 0 1 0 4.5ZM2.5 3.25a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0ZM3.25 12a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm9.5 0a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM14 7.5a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Zm0-4.25a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Z"></path></svg>';
+                    }
+                } else if (contrib.type === 'issue') {
+                    if (contrib.status === 'open') {
+                        color = '#f97316'; // Bright Orange
+                        // Real GitHub issue-opened octicon
+                        iconSvg = '<svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path fill="' + color + '" d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path><path fill="' + color + '" d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path></svg>';
+                    } else {
+                        color = '#c084fc'; // Light Purple
+                        // Real GitHub issue-closed octicon
+                        iconSvg = '<svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path fill="' + color + '" d="M11.28 6.78a.75.75 0 0 0-1.06-1.06L7.25 8.69 5.78 7.22a.75.75 0 0 0-1.06 1.06l2 2a.75.75 0 0 0 1.06 0l3.5-3.5Z"></path><path fill="' + color + '" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-1.5 0a6.5 6.5 0 1 0-13 0 6.5 6.5 0 0 0 13 0Z"></path></svg>';
+                    }
+                } else if (contrib.type === 'comment') {
+                    color = '#3b82f6'; // Bright Blue
+                    // Real GitHub comment octicon
+                    iconSvg = '<svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path fill="' + color + '" d="M1 2.75C1 1.784 1.784 1 2.75 1h10.5c.966 0 1.75.784 1.75 1.75v7.5A1.75 1.75 0 0 1 13.25 12H9.06l-2.573 2.573A1.458 1.458 0 0 1 4 13.543V12H2.75A1.75 1.75 0 0 1 1 10.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h4.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg>';
+                }
+
+                html += `
+                    <a href="${contrib.url}" target="_blank" rel="noopener noreferrer" class="contrib-item" style="display: flex; align-items: flex-start; gap: 8px; text-decoration: none; margin-bottom: 12px; padding: 8px; border-radius: 6px; cursor: pointer; transition: background 0.15s;">
+                        <div style="flex-shrink: 0; margin-top: 2px;">${iconSvg}</div>
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="color: rgba(255, 255, 255, 0.9); font-size: 12px; font-weight: 500; font-family: 'Inter', sans-serif; line-height: 1.5; margin-bottom: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${contrib.title}</div>
+                            <div style="color: rgba(255, 255, 255, 0.5); font-size: 10px; font-family: 'Inter', sans-serif;">${contrib.repo}${contrib.number ? ' #' + contrib.number : ''}</div>
+                        </div>
+                    </a>
+                `;
+            });
+
+            contentEl.innerHTML = html;
+
+            // Add hover effects
+            document.querySelectorAll('.contrib-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.background = 'rgba(255, 255, 255, 0.05)';
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.background = 'transparent';
+                });
+            });
+        }
+
         // Initialize dashboard when page loads
         document.addEventListener('DOMContentLoaded', () => {
             initAudio();
             generateRadarChart();
             generateProfessionalHeatmap();
             initializeProjectToggles();
-            
+
+            // Fetch GitHub contributions (LIVE DATA)
+            fetchGitHubContributions();
+
             // Optional: Auto-scroll every 4 seconds
             // setInterval(autoScrollSkillsStrip, 4000);
-            
+
             // Set initial audio icon
             if (!isAudioMuted) {
                 const audioIcon = document.querySelector('.audio-icon svg');
@@ -3338,6 +3480,36 @@
                     `;
                 }
             }
+        });
+
+        // Extension button scroll hide/show
+        let lastScrollTop = 0;
+        const extensionButton = document.querySelector('.extension-float');
+
+        if (extensionButton) {
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    extensionButton.classList.add('hidden');
+                } else {
+                    // Scrolling up
+                    extensionButton.classList.remove('hidden');
+                }
+
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }, false);
+        }
+    </script>
+    <script>
+        // Initialize Java Lottie Animation
+        var javaAnimation = lottie.loadAnimation({
+            container: document.getElementById('java-lottie'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'java-animation.json'
         });
     </script>
 </body>
