@@ -3,17 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waterfall Video</title>
+    <title>Manish Rathaur - Portfolio</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ctext x='50' y='72' font-size='65' font-family='Arial, sans-serif' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://db.onlinewebfonts.com">
+    <link rel="preload" href="https://db.onlinewebfonts.com/c/59a2ec451d6c057f39dbf6c66ce60959?family=brushield+Italic" as="style">
+    <link rel="preload" href="https://db.onlinewebfonts.com/c/2cf22f5c9c38d75f2bcefee18446e49f?family=eLePhAnT+uNcLe" as="style">
     <link rel="stylesheet" href="vertical-navbar.css">
     <link href="https://db.onlinewebfonts.com/c/59a2ec451d6c057f39dbf6c66ce60959?family=brushield+Italic" rel="stylesheet">
     <link href="https://db.onlinewebfonts.com/c/2cf22f5c9c38d75f2bcefee18446e49f?family=eLePhAnT+uNcLe" rel="stylesheet">
     <style>
+        /* Prevent font flash */
+        .fonts-loading {
+            opacity: 0;
+        }
+
+        .fonts-loaded {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body, html {
             height: 100%;
             overflow: hidden;
@@ -1065,8 +1081,8 @@
         </div>
     </div>
 
-    <h1 class="welcome-message">Welcome to My Portfolio</h1>
-    <h2 class="about-message">Explore My Creative Journey</h2>
+    <h1 class="welcome-message fonts-loading">Welcome to My Portfolio</h1>
+    <h2 class="about-message fonts-loading">Explore My Creative Journey</h2>
 
     <div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
         <div onclick="openResumeModal()" style="position: relative; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; padding: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); transition: all 0.3s ease; cursor: pointer; display: flex; align-items: center; justify-content: center;">
@@ -1100,6 +1116,26 @@
     </style>
 
     <script>
+        // Prevent font flash - wait for fonts to load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(function() {
+                    document.querySelectorAll('.fonts-loading').forEach(function(el) {
+                        el.classList.remove('fonts-loading');
+                        el.classList.add('fonts-loaded');
+                    });
+                });
+            } else {
+                // Fallback for browsers that don't support Font Loading API
+                setTimeout(function() {
+                    document.querySelectorAll('.fonts-loading').forEach(function(el) {
+                        el.classList.remove('fonts-loading');
+                        el.classList.add('fonts-loaded');
+                    });
+                }, 100);
+            }
+        });
+
         function openResumeModal() {
             document.getElementById('resumeModal').classList.add('show');
             document.body.style.overflow = 'hidden';
