@@ -84,19 +84,22 @@
             justify-content: center;
             padding: 60px 20px 30px;
             opacity: 0;
-            transform: translateY(100%);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(100%) scale(0.95);
+            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        opacity 0.35s ease;
             pointer-events: none;
+            will-change: transform, opacity;
         }
 
         .story.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0) scale(1);
             pointer-events: auto;
         }
 
         .story.prev {
-            transform: translateY(-100%);
+            transform: translateX(-100%) scale(0.95);
+            opacity: 0;
         }
 
         /* Tap zones for navigation */
@@ -675,13 +678,16 @@
         const tapLeft = document.getElementById('tapLeft');
         const tapRight = document.getElementById('tapRight');
 
+        let touchStartX = 0;
         let touchStartY = 0;
+        let touchEndX = 0;
         let touchEndY = 0;
+        let isScrolling = false;
 
         function updateStory(index) {
             if (index < 0 || index >= totalStories) return;
 
-            // Update stories
+            // Update stories with smooth animation
             stories.forEach((story, i) => {
                 story.classList.remove('active', 'prev');
                 if (i === index) {
@@ -723,26 +729,67 @@
         tapLeft.addEventListener('click', prevStory);
         tapRight.addEventListener('click', nextStory);
 
-        // Touch swipe navigation
+        // Horizontal swipe navigation (left/right for stories)
+        let swipeStartTime;
         document.addEventListener('touchstart', (e) => {
-            touchStartY = e.changedTouches[0].screenY;
+            // Don't interfere if touching inside scrollable content
+            if (e.target.closest('.story-content')) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+                swipeStartTime = Date.now();
+                isScrolling = false;
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!touchStartX || !touchStartY) return;
+
+            const touchX = e.touches[0].clientX;
+            const touchY = e.touches[0].clientY;
+            const diffX = touchStartX - touchX;
+            const diffY = touchStartY - touchY;
+
+            // Determine if user is scrolling vertically or swiping horizontally
+            if (Math.abs(diffY) > Math.abs(diffX)) {
+                isScrolling = true; // Vertical scroll - allow it
+            }
         }, { passive: true });
 
         document.addEventListener('touchend', (e) => {
-            touchEndY = e.changedTouches[0].screenY;
+            if (!touchStartX || !touchStartY) return;
+
+            touchEndX = e.changedTouches[0].clientX;
+            touchEndY = e.changedTouches[0].clientY;
+
             handleSwipe();
+
+            // Reset
+            touchStartX = 0;
+            touchStartY = 0;
+            touchEndX = 0;
+            touchEndY = 0;
+            isScrolling = false;
         }, { passive: true });
 
         function handleSwipe() {
-            const swipeDistance = touchStartY - touchEndY;
-            const minSwipeDistance = 50;
+            if (isScrolling) return; // Don't navigate if user was scrolling
 
-            if (Math.abs(swipeDistance) > minSwipeDistance) {
-                if (swipeDistance > 0) {
-                    // Swiped up - next story
+            const swipeDistanceX = touchStartX - touchEndX;
+            const swipeDistanceY = Math.abs(touchStartY - touchEndY);
+            const swipeTime = Date.now() - swipeStartTime;
+            const minSwipeDistance = 50;
+            const maxSwipeTime = 500; // Max time for swipe (ms)
+
+            // Only trigger if horizontal swipe is dominant and fast enough
+            if (Math.abs(swipeDistanceX) > minSwipeDistance &&
+                Math.abs(swipeDistanceX) > swipeDistanceY &&
+                swipeTime < maxSwipeTime) {
+
+                if (swipeDistanceX > 0) {
+                    // Swiped left - next story
                     nextStory();
                 } else {
-                    // Swiped down - previous story
+                    // Swiped right - previous story
                     prevStory();
                 }
             }
