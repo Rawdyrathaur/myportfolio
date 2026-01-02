@@ -63,10 +63,14 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 30px 20px;
+            padding: 30px 20px 50px 20px;
             position: relative;
             overflow: hidden;
-            background: url('js/vintage-grunge.png') center center / cover no-repeat;
+            /* Original vintage texture with performance optimizations */
+            background: url('js/vintage-grunge.png') center center / cover no-repeat fixed;
+            will-change: transform;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         .book-page::before {
@@ -131,8 +135,9 @@
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
-        .page3, .page4, .page5, .page6 { 
-            background: url('js/vintage-grunge.png') center center / cover no-repeat;
+        .page3, .page4, .page5, .page6 {
+            background: url('js/vintage-grunge.png') center center / cover no-repeat fixed;
+            will-change: transform;
         }
 
         .cover-page {
@@ -190,7 +195,8 @@
 
         .empty-page {
             padding: 0 !important;
-            background: url('js/vintage-grunge.png') center center / cover no-repeat !important;
+            background: url('js/vintage-grunge.png') center center / cover no-repeat fixed !important;
+            will-change: transform !important;
         }
 
         .empty-page::before {
