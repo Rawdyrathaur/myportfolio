@@ -129,6 +129,10 @@
             text-align: center;
             position: relative;
             overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            overscroll-behavior-y: contain;
         }
 
         /* Instagram-style gradients for readability */
@@ -393,19 +397,18 @@
             }
         }
 
-        /* Custom scrollbar */
+        /* Custom scrollbar - hide on mobile for smoother native scrolling */
         .story-content::-webkit-scrollbar {
-            width: 6px;
+            width: 0px;
+            display: none;
         }
 
         .story-content::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
+            background: transparent;
         }
 
         .story-content::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 3px;
+            background: transparent;
         }
 
         /* List styling */
